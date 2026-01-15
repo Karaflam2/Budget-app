@@ -4,9 +4,9 @@ import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import StatsChart from '../components/StatsChart';
 import TransactionList from '../components/TransactionList';
-import Button from '../components/Button';
+// import Button from '../components/Button';
 import { getTransaction } from '../services/transaction';
-import { getCurrentUser } from '../services/auth';
+import { getCurrentUser, logout } from '../services/auth';
 import type { Transaction, User } from '../types';
 
 function Dashboard() {
@@ -109,6 +109,10 @@ function Dashboard() {
             <div className="text-center py-12">Chargement...</div>
           ) : (
             <>
+              <div>
+                <h1>Bienvenue, {user?.name}!</h1>
+                <button onClick={logout}>Déconnexion</button>
+              </div>
               {/* Cartes de Stats */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 
